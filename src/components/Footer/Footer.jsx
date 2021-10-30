@@ -1,10 +1,17 @@
 import React from 'react';
-import { Navbar } from 'react-bootstrap';
+import { Navbar, Container } from 'react-bootstrap';
+import './Footer.css';
 
 
 function Footer () {
     return (
-        <div>Footer</div>
+        <Navbar bg='dark' fixed='bottom'>
+            {/* <Container> */}
+                <Navbar.Brand>
+                    <p id='footer'>Created by David Shaw &copy; {new Date().getFullYear()}</p>
+                </Navbar.Brand>
+            {/* </Container> */}
+        </Navbar>
     )
 };
 
