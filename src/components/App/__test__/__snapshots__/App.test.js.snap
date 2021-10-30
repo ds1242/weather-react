@@ -5,6 +5,9 @@ exports[`App component matches snapshot 1`] = `
   <div
     class="App"
   >
+    <nav>
+      Hello Navbar
+    </nav>
     <h1>
       hello world
     </h1>
