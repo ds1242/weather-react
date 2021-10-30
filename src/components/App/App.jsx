@@ -7,7 +7,9 @@ function App() {
   return (
     <div className="App">
       <Nav></Nav>
-      <div>hello world</div>
+      <main>
+        <div>hello world</div>
+      </main>
       <Footer></Footer>
     </div>
   );
