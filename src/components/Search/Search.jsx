@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Col, Row } from 'react-bootstrap';
+
+
 import './Search.css';
 
 
 function Search () {
+    
+    
     const [cityVal, setCityVal] = useState({city: ''});
-
+    const key = '1eec8ff5f151483ae61036bcfff1b27e';
+    
     const handleChange = (event) => {
         const { name, value } = event.target;
         setCityVal({
@@ -14,12 +19,48 @@ function Search () {
         });
     };
 
+    const getWeather = ( cityVal, lat, lon ) => {
+        console.log(cityVal, lat, lon)
+        const weatherApi = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=imperial&exclude=hourly&appid=' + key;
+        fetch(weatherApi)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+        })
+        .catch(function(error){
+            console.error(error);
+        });
+    }
+    
     const handleFormSubmit = async event => {
         event.preventDefault();
-        
-        
-        console.log(cityVal)
+
+        const geoApiUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityVal.city + '&limit=1&appid=' + key;
+        if(cityVal.city === '') {
+            alert('Please entere a city name into the search box');
+        } else {
+            fetch(geoApiUrl)
+            .then(function(response) {
+                if(response.ok) {
+                    return response.json();
+                } else {
+                    console.log('Error: ' + response.statusText);
+                }
+            })
+            .then(function(data) {
+                let lat = data[0].lat;
+                let lon = data[0].lon;
+                getWeather(cityVal.city, lat, lon)
+            })
+            .catch(function(error) {
+                console.error('Error')
+            })
+
+        }
         setCityVal({ city: '' });
+
     }
 
 
