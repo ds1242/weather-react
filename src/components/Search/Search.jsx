@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Col, Row } from 'react-bootstrap';
+
+
 import './Search.css';
 
 
 function Search () {
+    
+    const key = process.env.REACT_APP_WEATHER_KEY;
+
     const [cityVal, setCityVal] = useState({city: ''});
 
     const handleChange = (event) => {
@@ -17,7 +22,7 @@ function Search () {
     const handleFormSubmit = async event => {
         event.preventDefault();
         
-        
+        console.log(key);
         console.log(cityVal)
         setCityVal({ city: '' });
     }
