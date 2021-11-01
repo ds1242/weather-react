@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Col, Row, Spinner } from 'react-bootstrap';
+import WeatherCard from '../Card';
 
 
 import './Search.css';
@@ -14,7 +15,7 @@ function Search () {
     const [wind, setWind] = useState();
     const [humidity, setHumidity] = useState();
     const [uvi, setUvi] = useState();
-    const [fiveDay, setFiveDay] = useState();
+    const [fiveDay, setFiveDay] = useState([]);
 
     const key = '1eec8ff5f151483ae61036bcfff1b27e';
     
@@ -40,7 +41,7 @@ function Search () {
             setWind(data.current.wind_speed);
             setHumidity(data.current.humidity);
             setUvi(data.current.uvi);
-            setFiveDay(data.daily);
+            setFiveDay([data.daily]);
         })
         .catch(function(error){
             console.error(error);
@@ -109,9 +110,17 @@ function Search () {
             </Col>
             <Col>
                 Five Day Section
-                {fiveDay?.map(fiveDay => {
+                {fiveDay.map(five => {
+                    console.log(five[0].dt)
                     return (
-                        console.log(fiveDay)
+                        <WeatherCard 
+                           key={five.dt}
+                           date={five.dt}
+                           temp={five.temp}
+                           wind={five.wind_gust}
+                           uvi={five.uvi}
+                           weather={five.weather}
+                        />
                     )
                 })}
             </Col>
