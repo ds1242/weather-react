@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Form, Button, Container, Col, Row } from 'react-bootstrap';
+import { Form, Button, Container, Col, Row, Spinner } from 'react-bootstrap';
+import WeatherCard from '../Card';
 
 
 import './Search.css';
@@ -9,6 +10,13 @@ function Search () {
     
     
     const [cityVal, setCityVal] = useState({city: ''});
+    const [cityVal2, setCityVal2] = useState();
+    const [temp, setTemp] = useState();
+    const [wind, setWind] = useState();
+    const [humidity, setHumidity] = useState();
+    const [uvi, setUvi] = useState();
+    const [fiveDay, setFiveDay] = useState([]);
+
     const key = '1eec8ff5f151483ae61036bcfff1b27e';
     
     const handleChange = (event) => {
@@ -20,7 +28,7 @@ function Search () {
     };
 
     const getWeather = ( cityVal, lat, lon ) => {
-        console.log(cityVal, lat, lon)
+        // console.log(cityVal, lat, lon)
         const weatherApi = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=imperial&exclude=hourly&appid=' + key;
         fetch(weatherApi)
         .then(function(response) {
@@ -28,6 +36,12 @@ function Search () {
         })
         .then(function(data) {
             console.log(data);
+            setCityVal2(cityVal);
+            setTemp(data.current.temp);
+            setWind(data.current.wind_speed);
+            setHumidity(data.current.humidity);
+            setUvi(data.current.uvi);
+            setFiveDay([data.daily]);
         })
         .catch(function(error){
             console.error(error);
@@ -82,6 +96,12 @@ function Search () {
             <Col>
             <h3>Search results go here</h3>
             
+            <h4>{cityVal2}</h4>
+            <h4>{temp}</h4>
+            <h4>{wind}</h4>
+            <h4>{humidity}</h4>
+            <h4>{uvi}</h4>
+            
             </Col>
         </Row>
         <Row>
@@ -90,6 +110,19 @@ function Search () {
             </Col>
             <Col>
                 Five Day Section
+                {fiveDay.map(five => {
+                    console.log(five[0].dt)
+                    return (
+                        <WeatherCard 
+                           key={five.dt}
+                           date={five.dt}
+                           temp={five.temp}
+                           wind={five.wind_gust}
+                           uvi={five.uvi}
+                           weather={five.weather}
+                        />
+                    )
+                })}
             </Col>
         </Row>
     </Container> 
