@@ -14,6 +14,7 @@ function Search () {
     const [wind, setWind] = useState();
     const [humidity, setHumidity] = useState();
     const [uvi, setUvi] = useState();
+    const [fiveDay, setFiveDay] = useState();
 
     const key = '1eec8ff5f151483ae61036bcfff1b27e';
     
@@ -33,11 +34,13 @@ function Search () {
             return response.json();
         })
         .then(function(data) {
-            setCityVal2(cityVal)
-            setTemp(data.current.temp)
-            setWind(data.current.wind_speed)
-            setHumidity(data.current.humidity)
-            setUvi(data.current.uvi)
+            console.log(data);
+            setCityVal2(cityVal);
+            setTemp(data.current.temp);
+            setWind(data.current.wind_speed);
+            setHumidity(data.current.humidity);
+            setUvi(data.current.uvi);
+            setFiveDay(data.daily);
         })
         .catch(function(error){
             console.error(error);
@@ -106,6 +109,11 @@ function Search () {
             </Col>
             <Col>
                 Five Day Section
+                {fiveDay?.map(fiveDay => {
+                    return (
+                        console.log(fiveDay)
+                    )
+                })}
             </Col>
         </Row>
     </Container> 
