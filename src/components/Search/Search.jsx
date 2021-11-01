@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Col, Row, Spinner } from 'react-bootstrap';
+import Card from '../Card';
 
 
 import './Search.css';
@@ -111,7 +112,14 @@ function Search () {
                 Five Day Section
                 {fiveDay?.map(fiveDay => {
                     return (
-                        console.log(fiveDay)
+                        <Card 
+                           key={fiveDay.dt}
+                           date={fiveDay.dt}
+                           temp={fiveDay.temp}
+                           wind={fiveDay.wind_gust}
+                           uvi={fiveDay.uvi}
+                           weather={fiveDay.weather[0]}
+                        />
                     )
                 })}
             </Col>
