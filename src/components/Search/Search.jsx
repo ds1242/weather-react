@@ -41,8 +41,7 @@ function Search () {
             setWind(data.current.wind_speed);
             setHumidity(data.current.humidity);
             setUvi(data.current.uvi);
-            setFiveDay(fiveDay => [...fiveDay, data.daily]);
-            console.log(fiveDay);
+            setFiveDay([data.daily]);
         })
         .catch(function(error){
             console.error(error);
@@ -112,6 +111,7 @@ function Search () {
             <Col>
                 Five Day Section
                 {fiveDay.map(five => {
+                    console.log(five[0].dt)
                     return (
                         <WeatherCard 
                            key={five.dt}
