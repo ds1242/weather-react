@@ -1,5 +1,12 @@
 *{
     margin:0;
     padding:0;
+    --primary_color:#80A1C1;
+    --secondary_color: #F6F1D1;
+    --tertiary_color: #285238;
+    --quartiary_color: #384E77;
+    --cinquieme_color: #EAD637;
     /* box-sizing: border-box; */
 }
+
+
