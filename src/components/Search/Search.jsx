@@ -99,14 +99,15 @@ function Search () {
         </Col>
             <Col>
             <h3>Current Weather Information: </h3>
-            
-            <h4>{cityVal2}</h4>
-            <h4>Current Temp: {temp}</h4>
-            <h4>Feels Like: {feel} </h4>
-            <h4>Wind Speed: {wind}</h4>
-            <h4>Humidity: {humidity}</h4>
-            <h4>UV Index: {uvi}</h4>
-            
+                <WeatherCard
+                    key={cityVal2}
+                    city={cityVal2}
+                    currentTemp={temp}
+                    feelsLike={feel}
+                    wind={wind}
+                    humidity={humidity}
+                    uvi={uvi}
+                />            
             </Col>
         </Row>
         <Row>
