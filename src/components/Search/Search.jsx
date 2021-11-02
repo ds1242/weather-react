@@ -15,6 +15,7 @@ function Search () {
     const [wind, setWind] = useState();
     const [humidity, setHumidity] = useState();
     const [uvi, setUvi] = useState();
+    const [feel, setFeel] = useState();
     const [fiveDay, setFiveDay] = useState([]);
 
     const key = '1eec8ff5f151483ae61036bcfff1b27e';
@@ -35,13 +36,16 @@ function Search () {
             return response.json();
         })
         .then(function(data) {
-            console.log(data);
+            console.log(data)
             setCityVal2(cityVal);
             setTemp(data.current.temp);
             setWind(data.current.wind_speed);
             setHumidity(data.current.humidity);
             setUvi(data.current.uvi);
-            setFiveDay([data.daily]);
+            setFeel(data.current.feels_like);
+            let futureForecast = data.daily;
+            // setFiveDay([futureForecast]);
+            // console.log(fiveDay)
         })
         .catch(function(error){
             console.error(error);
@@ -94,14 +98,16 @@ function Search () {
             </Form>
         </Col>
             <Col>
-            <h3>Search results go here</h3>
-            
-            <h4>{cityVal2}</h4>
-            <h4>{temp}</h4>
-            <h4>{wind}</h4>
-            <h4>{humidity}</h4>
-            <h4>{uvi}</h4>
-            
+            <h3>Current Weather Information: </h3>
+                <WeatherCard
+                    key={cityVal2}
+                    city={cityVal2}
+                    currentTemp={temp}
+                    feelsLike={feel}
+                    wind={wind}
+                    humidity={humidity}
+                    uvi={uvi}
+                />            
             </Col>
         </Row>
         <Row>
@@ -110,19 +116,20 @@ function Search () {
             </Col>
             <Col>
                 Five Day Section
-                {fiveDay.map(five => {
-                    console.log(five[0].dt)
+                {/* {fiveDay.map(weatherInfo => {
+                    console.log(weatherInfo[1].temp)
                     return (
                         <WeatherCard 
-                           key={five.dt}
-                           date={five.dt}
-                           temp={five.temp}
-                           wind={five.wind_gust}
-                           uvi={five.uvi}
-                           weather={five.weather}
+                           key={weatherInfo[1].dt}
+                           date={weatherInfo[1].dt}
+                           temp={weatherInfo[1].uvi}
+                           wind={weatherInfo[1].wind_gust}
+                           uvi={weatherInfo[1].uvi}
+                           weather={weatherInfo[1].weather}
+
                         />
                     )
-                })}
+                })} */}
             </Col>
         </Row>
     </Container> 
@@ -130,3 +137,5 @@ function Search () {
 };
 
 export default Search;
+
+
