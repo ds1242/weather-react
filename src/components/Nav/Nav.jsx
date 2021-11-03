@@ -5,7 +5,7 @@ import './Nav.css';
 
 function Nav() {
     return (
-        <Navbar bg='dark' >
+        <Navbar id='navbar' >
             <Container>
                 <Navbar.Brand>
                     <h2 id='navbar-brand'>David's React Weather</h2>
