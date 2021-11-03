@@ -86,7 +86,7 @@ function Search () {
     return (
     <Container>
 
-      <Row>
+      <Row xs={1} md={2}>
           <Col>
             <Form id='search-form' onSubmit={handleFormSubmit}>
                 <Form.Group className="mb-3">
