@@ -42,8 +42,8 @@ function WeatherCard (props) {
                         let cardUrl = 'https://openweathermap.org/img/w/'+ future.weather[0].icon + '.png';
                         return(
                             <Col id='future-cards' >
-                                <Card>
-                                    <Card.Title>{moment.unix(future.dt).format('L')} <img src={cardUrl}/> </Card.Title>
+                                <Card id='future-forecast-cards'>
+                                    <Card.Title id='title'>{moment.unix(future.dt).format('L')} <img src={cardUrl}/> </Card.Title>
                                     <ListGroup variant="flush">
                                         <ListGroup.Item>Temp: {future.temp.day}</ListGroup.Item>
                                         <ListGroup.Item>Feels Like: {future.feels_like.day}</ListGroup.Item>
