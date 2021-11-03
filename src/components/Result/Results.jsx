@@ -6,20 +6,22 @@ import './Result.css';
 
 function WeatherCard (props) {
 
-    const { date, currentTemp, wind, uvi, feelsLike, city, humidity, future } = props;
+    const { date, currentTemp, wind, uvi, feelsLike, city, humidity, future, icon} = props;
     let futureCast = []
     for (let i = 0; i < 5; i++) {
         futureCast.push(future[i]);        
     }
+    let iconUrl = 'https://openweathermap.org/img/w/'+ icon + '.png';
 
     console.log(futureCast)
+
     return (
         <Container>
             <Row>
                 <h3>Current Weather Information: </h3>
                 <Card id='current-weather-card'>
                     <Card.Body>
-                        <Card.Title>{city}</Card.Title>
+                        <Card.Title>{city} {date} <img src={iconUrl}/></Card.Title>
                         <ListGroup variant="flush">
                             <ListGroup.Item>Current Temp: {currentTemp}</ListGroup.Item>
                             <ListGroup.Item>Feels Like: {feelsLike}</ListGroup.Item>
@@ -36,10 +38,11 @@ function WeatherCard (props) {
                 {future?.length ? (
                     <Row xs={1} md={3}>
                     {futureCast?.map(future => {
+                        let cardUrl = 'https://openweathermap.org/img/w/'+ future.weather[0].icon + '.png';
                         return(
                             <Col id='future-cards' >
                                 <Card>
-                                    <Card.Title>{future.dt}</Card.Title>
+                                    <Card.Title>{future.dt} <img src={cardUrl}/> </Card.Title>
                                     <ListGroup variant="flush">
                                         <ListGroup.Item>Temp: {future.temp.day}</ListGroup.Item>
                                         <ListGroup.Item>Feels Like: {future.feels_like.day}</ListGroup.Item>

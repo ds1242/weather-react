@@ -16,6 +16,8 @@ function Search () {
     const [humidity, setHumidity] = useState();
     const [uvi, setUvi] = useState();
     const [feel, setFeel] = useState();
+    const [currentDt, setCurrentDt] = useState();
+    const [currentWeatherIcon, setCurrentWeatherIcon] = useState();
     const [fiveDay, setFiveDay] = useState([]);
 
     const key = '1eec8ff5f151483ae61036bcfff1b27e';
@@ -36,7 +38,7 @@ function Search () {
             return response.json();
         })
         .then(function(data) {
-            // console.log(data)
+            console.log(data)
             setCityVal2(cityVal);
             setTemp(data.current.temp);
             setWind(data.current.wind_speed);
@@ -44,6 +46,8 @@ function Search () {
             setUvi(data.current.uvi);
             setFeel(data.current.feels_like);
             let futureForecast = data.daily;
+            setCurrentWeatherIcon(data.current.weather[0].icon);
+            setCurrentDt(data.current.dt);
             // console.log(futureForecast)
             setFiveDay(futureForecast);
             // console.log(fiveDay)
@@ -98,9 +102,9 @@ function Search () {
                 </Button>
             </Form>
             <Row>
-                <Col>
+                {/* <Col>
                     Search History
-                </Col>
+                </Col> */}
                
             </Row>
         </Col>
@@ -108,6 +112,7 @@ function Search () {
             
                 <Result
                     key={cityVal2}
+                    date={currentDt}
                     city={cityVal2}
                     currentTemp={temp}
                     feelsLike={feel}
@@ -115,6 +120,7 @@ function Search () {
                     humidity={humidity}
                     uvi={uvi}
                     future={fiveDay}
+                    icon={currentWeatherIcon}
                 />            
             </Col>
         </Row>
