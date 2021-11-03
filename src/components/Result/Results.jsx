@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, ListGroup, Row, Col, Container } from 'react-bootstrap';
 import './Result.css';
+import moment from 'moment';
 
 
 
@@ -21,7 +22,7 @@ function WeatherCard (props) {
                 <h3>Current Weather Information: </h3>
                 <Card id='current-weather-card'>
                     <Card.Body>
-                        <Card.Title>{city} {date} <img src={iconUrl}/></Card.Title>
+                        <Card.Title>{city} {moment.unix(date).format('L')} <img src={iconUrl}/></Card.Title>
                         <ListGroup variant="flush">
                             <ListGroup.Item>Current Temp: {currentTemp}</ListGroup.Item>
                             <ListGroup.Item>Feels Like: {feelsLike}</ListGroup.Item>
@@ -42,7 +43,7 @@ function WeatherCard (props) {
                         return(
                             <Col id='future-cards' >
                                 <Card>
-                                    <Card.Title>{future.dt} <img src={cardUrl}/> </Card.Title>
+                                    <Card.Title>{moment.unix(future.dt).format('L')} <img src={cardUrl}/> </Card.Title>
                                     <ListGroup variant="flush">
                                         <ListGroup.Item>Temp: {future.temp.day}</ListGroup.Item>
                                         <ListGroup.Item>Feels Like: {future.feels_like.day}</ListGroup.Item>
