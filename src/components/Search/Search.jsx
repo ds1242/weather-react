@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Col, Row, Spinner } from 'react-bootstrap';
-import WeatherCard from '../Card';
+import Result from '../Result';
 
 
 import './Search.css';
@@ -16,6 +16,8 @@ function Search () {
     const [humidity, setHumidity] = useState();
     const [uvi, setUvi] = useState();
     const [feel, setFeel] = useState();
+    const [currentDt, setCurrentDt] = useState();
+    const [currentWeatherIcon, setCurrentWeatherIcon] = useState();
     const [fiveDay, setFiveDay] = useState([]);
 
     const key = '1eec8ff5f151483ae61036bcfff1b27e';
@@ -44,7 +46,10 @@ function Search () {
             setUvi(data.current.uvi);
             setFeel(data.current.feels_like);
             let futureForecast = data.daily;
-            // setFiveDay([futureForecast]);
+            setCurrentWeatherIcon(data.current.weather[0].icon);
+            setCurrentDt(data.current.dt);
+            // console.log(futureForecast)
+            setFiveDay(futureForecast);
             // console.log(fiveDay)
         })
         .catch(function(error){
@@ -85,7 +90,7 @@ function Search () {
     return (
     <Container>
 
-      <Row>
+      <Row xs={1} md={2}>
           <Col>
             <Form id='search-form' onSubmit={handleFormSubmit}>
                 <Form.Group className="mb-3">
@@ -96,40 +101,27 @@ function Search () {
                     Submit
                 </Button>
             </Form>
+            <Row>
+                {/* <Col>
+                    Search History
+                </Col> */}
+               
+            </Row>
         </Col>
             <Col>
-            <h3>Current Weather Information: </h3>
-                <WeatherCard
+            
+                <Result
                     key={cityVal2}
+                    date={currentDt}
                     city={cityVal2}
                     currentTemp={temp}
                     feelsLike={feel}
                     wind={wind}
                     humidity={humidity}
                     uvi={uvi}
+                    future={fiveDay}
+                    icon={currentWeatherIcon}
                 />            
-            </Col>
-        </Row>
-        <Row>
-            <Col>
-                Search History
-            </Col>
-            <Col>
-                Five Day Section
-                {/* {fiveDay.map(weatherInfo => {
-                    console.log(weatherInfo[1].temp)
-                    return (
-                        <WeatherCard 
-                           key={weatherInfo[1].dt}
-                           date={weatherInfo[1].dt}
-                           temp={weatherInfo[1].uvi}
-                           wind={weatherInfo[1].wind_gust}
-                           uvi={weatherInfo[1].uvi}
-                           weather={weatherInfo[1].weather}
-
-                        />
-                    )
-                })} */}
             </Col>
         </Row>
     </Container> 
