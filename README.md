@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# David Shaw's Portfolio [![Netlify Status](https://api.netlify.com/api/v1/badges/01fdb6e7-c0fd-4404-b71c-7eb77c13e802/deploy-status)](https://app.netlify.com/sites/david-shaw-portfolio/deploys) ![badmath](https://img.shields.io/badge/license-MIT-blue)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  ## About/Description
 
-## Available Scripts
+  David's weather dashboard allows a user to search by a city.  The city value is passed into the openweather geo finder api to find the latitude and longitude of the city.  It then passes those values into the openweather forecast api where it loads the city name, current temp, wind speed, humidity, and UV index with a color dot for the user to read.  It will display the next five days in cards below for the user as well.  It uses local storage to create buttons for the user to click and search for that information again. 
 
-In the project directory, you can run:
+  View Page Here: https://ds-weather-dashboard.netlify.app/
 
-### `npm start`
+  ## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Languages](#languages)
+  * [Contributing](#contributing)
+  * [License](#license)
+  * [Tests](#tests)
+  * [Questions](#questions)
+  
+  ## Installation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  To run this locally npm start will kick off the React scripts and load it on a localhost. Otherwise, this is hosted on Netlify.
 
-### `npm test`
+  ## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  ### Screenshots of App
 
-### `npm run build`
+  #### Basic page after search
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  <img width="1000" src="./src/assets/search-results.png" alt="main page with results" />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+  ## Languages
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  - React.js
+  - Javascript
+  - CSS
+  - BootStrap
+  - MomentJS
+  - OpenWeather API
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  ## Contributing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  Contributions by: David Shaw
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  If you would like to contribute to this project we follow the [Contributor Covenant](https://www.contributor-covenant.org/)
 
-## Learn More
+  ## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  https://choosealicense.com/licenses/mit/
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  ## Tests
 
-### Code Splitting
+  Tests were written to help ensure each component renders correct as well as some tests to ensure contained information is correct.  The built in React npm run test will kick off these tests.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  ## Questions:
 
-### Analyzing the Bundle Size
+  If you have any questions please contact us or refer to our github below:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  Email Us At: david.shaw1242@gmail.com
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  Github Repo: https://github.com/ds1242/weather-react
