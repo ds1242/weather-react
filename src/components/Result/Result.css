@@ -1,3 +1,7 @@
-/* #future-cards {
-    width: 50%;
-} */
+#future-cards {
+    padding: 10px;
+}
+
+#current-weather-card{
+    padding: 10px;
+}

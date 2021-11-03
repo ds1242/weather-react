@@ -17,7 +17,7 @@ function WeatherCard (props) {
         <Container>
             <Row>
                 <h3>Current Weather Information: </h3>
-                <Card>
+                <Card id='current-weather-card'>
                     <Card.Body>
                         <Card.Title>{city}</Card.Title>
                         <ListGroup variant="flush">
