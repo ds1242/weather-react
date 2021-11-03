@@ -5,7 +5,7 @@ import './Footer.css';
 
 function Footer () {
     return (
-        <Navbar bg='dark' fixed='bottom'>
+        <Navbar bg='dark'>
             {/* <Container> */}
                 <Navbar.Brand>
                     <p id='footer'>Created by David Shaw &copy; {new Date().getFullYear()}</p>
