@@ -14,8 +14,6 @@ function WeatherCard (props) {
     }
     let iconUrl = 'https://openweathermap.org/img/w/'+ icon + '.png';
 
-    console.log(futureCast)
-
     return (
         <Container>
             <Row>
@@ -60,8 +58,6 @@ function WeatherCard (props) {
                 ) : (
                     <h2>Please search for weather</h2>
                 )}
-
-
         </Container>
     )
 }

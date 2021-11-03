@@ -38,7 +38,6 @@ function Search () {
             return response.json();
         })
         .then(function(data) {
-            console.log(data)
             setCityVal2(cityVal);
             setTemp(data.current.temp);
             setWind(data.current.wind_speed);
