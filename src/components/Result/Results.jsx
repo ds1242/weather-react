@@ -21,8 +21,7 @@ function WeatherCard (props) {
             <Row>
                 <h3>Current Weather Information: </h3>
                 <Card id='current-weather-card'>
-                    <Card.Body>
-                        <Card.Title>{city} {moment.unix(date).format('L')} <img src={iconUrl}/></Card.Title>
+                        <Card.Title id='current-weather-title'>{city} {moment.unix(date).format('L')} <img src={iconUrl}/></Card.Title>
                         <ListGroup variant="flush">
                             <ListGroup.Item>Current Temp: {currentTemp}</ListGroup.Item>
                             <ListGroup.Item>Feels Like: {feelsLike}</ListGroup.Item>
@@ -32,7 +31,6 @@ function WeatherCard (props) {
                             {/* <ListGroup.Item>Weather: {weather}</ListGroup.Item> */}
 
                         </ListGroup>
-                    </Card.Body>
                 </Card>
             </Row>
             <h3>Five Day Forecast: </h3>

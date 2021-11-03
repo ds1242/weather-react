@@ -97,7 +97,7 @@ function Search () {
                     <Form.Label>Enter City Name</Form.Label>
                     <Form.Control type="text" placeholder='City Name' name='city' value={cityVal.city} onChange={handleChange} />
                 </Form.Group>
-                <Button variant='primary' type='submit'>
+                <Button id='search-button' type='submit'>
                     Submit
                 </Button>
             </Form>

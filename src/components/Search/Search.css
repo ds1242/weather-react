@@ -1,3 +1,15 @@
 #search-from {
     width: 1.5vw;
 }
+
+#search-button {
+    width: 250px;
+    background-color: var(--primary_color);
+    border-color: var(--primary_color);
+    color:white;
+}
+#search-button:hover {
+    background-color: white;
+    border-color: var(--primary_color);
+    color: var(--primary_color);
+}

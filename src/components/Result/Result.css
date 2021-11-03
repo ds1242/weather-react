@@ -4,9 +4,14 @@
 
 #current-weather-card{
     padding: 10px;
-    
+    background-color: var(--primary_color);
+    color:white;
 }
-
+#current-weather-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #future-forecast-cards {
     background-color: var(--primary_color);
     color:white;
