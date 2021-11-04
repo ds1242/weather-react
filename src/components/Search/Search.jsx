@@ -61,7 +61,7 @@ function Search () {
 
         const geoApiUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityVal.city + '&limit=1&appid=' + key;
         if(cityVal.city === '') {
-            alert('Please entere a city name into the search box');
+            alert('Please enter a city name into the search box');
         } else {
             fetch(geoApiUrl)
             .then(function(response) {
